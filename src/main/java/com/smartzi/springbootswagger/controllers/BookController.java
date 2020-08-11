@@ -4,13 +4,14 @@ import com.smartzi.springbootswagger.models.Book;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 @RestController
 @RequestMapping("/api")
 public class BookController {
 
-    List<Book> books = new ArrayList<>();
+    HashMap<Integer,Book> books = new HashMap<>();
 
     @GetMapping("/{id}")
     public Book getBook(@PathVariable int id){
@@ -19,12 +20,12 @@ public class BookController {
 
     @GetMapping("/")
     public List<Book> getAllBooks(){
-        return books;
+        return new ArrayList<Book>(books.values());
     }
 
     @PostMapping("/")
     public Book addBook(@RequestBody Book book){
-        books.add(book);
+        books.put(book.getId(),book);
         return book;
     }
 }
