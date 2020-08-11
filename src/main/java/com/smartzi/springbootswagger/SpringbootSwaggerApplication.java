@@ -34,7 +34,7 @@ public class SpringbootSwaggerApplication {
 
     private ApiInfo apiDetails() {
         return new ApiInfo(
-                "Book REST API",
+                "Library REST API",
                 "Spring Boot REST API for swagger integration",
                 "1.0",
                 "Free to use",
