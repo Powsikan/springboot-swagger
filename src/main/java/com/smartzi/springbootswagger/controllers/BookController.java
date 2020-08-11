@@ -12,24 +12,24 @@ import java.util.List;
 @RequestMapping("/api")
 public class BookController {
 
-    HashMap<Integer,Book> books = new HashMap<>();
+    HashMap<Integer, Book> books = new HashMap<>();
 
     @GetMapping("/{id}")
     @ApiOperation(value = "Find Book by id",
-                  notes = "Provide an id to look up specific book from the Library",
-                  response = Book.class)
-    public Book getBook(@PathVariable int id){
+            notes = "Provide an id to look up specific book from the Library",
+            response = Book.class)
+    public Book getBook(@PathVariable int id) {
         return books.get(id);
     }
 
     @GetMapping("/")
-    public List<Book> getAllBooks(){
+    public List<Book> getAllBooks() {
         return new ArrayList<Book>(books.values());
     }
 
     @PostMapping("/")
-    public Book addBook(@RequestBody Book book){
-        books.put(book.getId(),book);
+    public Book addBook(@RequestBody Book book) {
+        books.put(book.getId(), book);
         return book;
     }
 }

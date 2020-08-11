@@ -23,7 +23,7 @@ public class SpringbootSwaggerApplication {
     }
 
     @Bean
-    public Docket swaggerConfiguration(){
+    public Docket swaggerConfiguration() {
         return new Docket(DocumentationType.SWAGGER_2)
                 .select()
                 .paths(PathSelectors.ant("/api//*"))
